@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wedding</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sneha & Nitheesh's Wedding</h1>
+        <p>Join us in celebrating our special day!</p>
+    </header>
+    <section id="invitation">
+        <h2>Invitation</h2>
+        <p>We invite you to share our joy at the celebration of our marriage.</p>
+        <p><strong>Date:</strong> October 15, 2024</p>
+        <p><strong>Location:</strong> Wonderland Gardens, New York</p>
+        <div id="countdown">
+            <p id="countdown-timer"></p>
+        </div>
+    </section>
+
+    <section id="details">
+        <h2>Bride & Groom</h2>
+        <div class="container">
+            <div class="column">
+                <h3>The Bride</h3>
+                <p>Sneha, the daydreaming architect with a dual degree in bargain hunts and beach banter</p>
+                <button onclick="toggleDetails('bride-details')">Learn More About Emily</button>
+                <div id="bride-details" class="details" style="display:none;">
+                    <p>Sneha is an avid painter who draws inspiration from nature. She has organized several local art exhibits and loves to spend her weekends hiking in the mountains.</p>
+                    <!-- More details can be added here -->
+                </div>
+            </div>
+            <div class="column">
+                <h3>The Groom</h3>
+                <p>Nitheesh, a software developer with a passion for music and cooking.</p>
+                <button onclick="toggleDetails('groom-details')">Learn More About Jordan</button>
+                <div id="groom-details" class="details" style="display:none;">
+                    <p>Jordan has been coding since he was ten and enjoys creating music in his home studio. He's known for his legendary BBQs among friends and family.</p>
+                    <!-- More details can be added here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="photo">
+            <img src="path-to-your-photo.jpg" alt="Photo description">
+            <p>Photo caption</p>
+        </div>
+        <div class="video">
+            <video controls>
+                <source src="path-to-your-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Video caption</p>
+        </div>
+    </section>
+
+</body>
+</html>
+
+<script>
+    function toggleDetails(detailsId) {
+        var details = document.getElementById(detailsId);
+        details.style.display = details.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("March 31, 2024").getTime();
+
+    // Update the countdown every 1 second
+    var countdownFunction = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the countdown date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="countdown-timer"
+        document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+        // If the countdown is finished, write some text
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdown-timer").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+</script>
