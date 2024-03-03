@@ -1,15 +1,131 @@
+#loading-buffer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sn-initials {
+    font-family: 'Dancing Script', cursive;
+    background-image: url(loadIcon.jpg);
+    font-size: 6em; /* Adjust based on your actual size */
+    color: #fe6f5e;
+    position: relative;
+    z-index: 2;
+}
+
+.loading-svg {
+    position: absolute;
+    width: 200px; /* This should be larger than the SN initials */
+    height: 200px; /* Same as width for the perfect circle */
+    transform: rotate(-90deg); /* Start the circle from the top */
+    z-index: 1;
+}
+
+.loading-circle {
+    stroke-dasharray: 600.48; /* Circumference of the circle */
+    stroke-dashoffset: 600.48; /* Full circumference for 0% loaded */
+    animation: loadProgress 5s linear forwards;
+}
+
+@keyframes loadProgress {
+    to {
+        stroke-dashoffset: 0; /* No offset for 100% loaded */
+    }
+}
+
+
+@keyframes float {
+    0%, 100% { transform: translateY(-10px); }
+    50% { transform: translateY(10px); }
+}
+
+@keyframes backgroundFade {
+    0%, 100% { background-color: #fff; }
+    50% { background-color: #ffe0e9; } /* Soft pink for a subtle transition */
+}
+
+
 body {
+    background-image: url('background.webp'); /* Replace with the path to your background image */
+    background-size: cover; /* This will ensure that your image covers the whole page */
+    background-position: center; /* This will center your image on the page */
+    background-repeat: no-repeat;
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fafafa;
+    background-attachment: fixed;
+    /* background-color: #fafafa; */
 }
 
 header {
-    background-color: #fe6f5e;
-    color: white;
+    /* background-color: #fe6f5e; Keep the original salmon pink color */
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff; /* White text */
     padding: 20px;
     text-align: center;
+    position: relative;
+    overflow: hidden; /* Ensures nothing spills out of the header */
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive; /* A playful script font */
+    font-size: 4em; /* Large font size */
+    margin: 0;
+    animation: bounce 2s infinite; /* Bouncy animation */
+    display: inline-block;
+    background: -webkit-linear-gradient(#fff, #ffd5cd); /* Gradient text effect */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    font-family: 'Indie Flower', cursive; /* Another playful font */
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+/* Keyframes for bouncy animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Add a decorative element, like a heart */
+header::before {
+    font-size: 3em;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    top: -10px;
+}
+
+/* Add a shadow to the header for a subtle depth effect */
+header {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure that the header stays readable and fits on all devices */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
 }
 
 header h1 {
@@ -19,15 +135,22 @@ header h1 {
 #countdown {
     margin-top: 20px;
     padding: 10px;
-    background-color: #fff0f5; /* Light pink background, you can change this */
+    background-color: #fff0f5; 
     text-align: center;
     border-radius: 5px;
 }
 
-#countdown-timer {
+/* #countdown-timer {
     font-size: 20px;
     font-weight: bold;
-    color: #fe6f5e; /* Theme color for the countdown timer */
+    color: #fe6f5e; 
+} */
+
+#countdown-timer {
+    font-size: 24px;
+    font-family: 'Dancing Script', cursive;
+    color: #fe6f5e;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Flex container for Bride & Groom section */
@@ -64,7 +187,8 @@ header h1 {
 /* Style sections with white background */
 section {
     padding: 20px;
-    background-color: white;
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.5); /* This is a white color with 50% opacity */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
