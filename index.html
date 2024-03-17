@@ -68,42 +68,27 @@
 	<div class="fh5co-loader"></div>
 
 	<div id="page">
-	<nav class="fh5co-nav" role="navigation">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-2">
-					<div id="fh5co-logo"><a href="index.html">The Mallus<strong>.</strong></a></div>
-				</div>
-				<div class="col-xs-10 text-right menu-1">
-					<!-- <ul>
-						<li class="active"><a href="index.html">Home</a></li>
-						<li><a href="about.html">Story</a></li>
-						<li class="has-dropdown">
-							<a href="services.html">Services</a>
-							<ul class="dropdown">
-								<li><a href="#">Web Design</a></li>
-								<li><a href="#">eCommerce</a></li>
-								<li><a href="#">Branding</a></li>
-								<li><a href="#">API</a></li>
-							</ul>
-						</li> -->
-						<!-- <li class="has-dropdown">
-							<a href="gallery.html">Gallery</a>
-							<ul class="dropdown">
-								<li><a href="#">HTML5</a></li>
-								<li><a href="#">CSS3</a></li>
-								<li><a href="#">Sass</a></li>
-								<li><a href="#">jQuery</a></li>
-							</ul>
-						</li>
-						<li><a href="contact.html">Contact</a></li> -->
-					</ul>
+		<nav class="fh5co-nav" role="navigation">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="index.html">SN</a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li class="active"><a href="index.html">Home</a></li>
+							<li><a href="index.html#fh5co-couple">Story</a></li>
+							<li><a href="index.html#fh5co-event">Wedding Events</a></li>
+							<li><a href="index.html#fh5co-couple-story">Laughs & Love</a></li>
+							<li><a href="index.html#fh5co-gallery">Gallery</a></li>
+							<li><a href="index.html#Invitation">Invite</a></li>
+							<li><a href="index.html#fh5co-testimonial">Friends Wishes</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
-
-		</div>
-	</nav>
-
+		</nav>
+		
 	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/background.png);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
@@ -156,6 +141,28 @@
 		</div>
 	</div>
 
+	<section id="flip-invitation-section" style="background: url('images/back.jpg') center center no-repeat; background-size: cover;">
+		<h2>Our Wedding Invitation</h2>
+		<p>Hover over the invitation to see the details!</p>
+		<div class="flip-card-container" style="text-align: center;">
+		  <div class="flip-card">
+			<div class="flip-card-inner">
+			  <div class="flip-card-front">
+				<a href="images/front.png" class="image-popup">
+				  <img src="images/front.png" alt="Front Image" style="width:300px;height:300px;">
+				</a>
+			  </div>
+			  <div class="flip-card-back">
+				<a href="images/Invite.png" class="image-popup">
+				  <img src="images/Invite.png" alt="Invitation" style="width:300px;height:300px;">
+				</a>
+			  </div>
+			</div>
+		</div>
+	</div>
+  </section>
+	
+	  
 	<div id="fh5co-event" class="fh5co-bg" style="background-image:url(images/location.png);">
 		<div class="overlay"></div>
 		<div class="container">
@@ -467,23 +474,40 @@
 	<script src="js/main.js"></script>
 
 	<script>
-    var d = new Date("March 31, 2024");
+		var d = new Date("March 31, 2024");
 
-    // default example
-    simplyCountdown('.simply-countdown-one', {
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate()
-    });
+		// default example
+		simplyCountdown('.simply-countdown-one', {
+			year: d.getFullYear(),
+			month: d.getMonth() + 1,
+			day: d.getDate()
+		});
 
-    //jQuery example
-    $('#simply-countdown-losange').simplyCountdown({
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate(),
-        enableUtc: false
-    });
-</script>
+		//jQuery example
+		$('#simply-countdown-losange').simplyCountdown({
+			year: d.getFullYear(),
+			month: d.getMonth() + 1,
+			day: d.getDate(),
+			enableUtc: false
+		});
+	</script>
+
+	<script>
+		$(document).ready(function() {
+		$('.image-popup').magnificPopup({
+			type: 'image',
+			closeOnContentClick: true,
+			mainClass: 'mfp-with-zoom', // This class is for the zoom animation
+			image: {
+			verticalFit: true
+			},
+			zoom: {
+			enabled: true, // By default it's false, so don't forget to enable it
+			duration: 300 // You can change the zoom duration here
+			}
+		});
+		});
+	</script>
 
 	</body>
 </html>
